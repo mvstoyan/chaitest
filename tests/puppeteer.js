@@ -62,6 +62,10 @@ chai.should();
         resultData.should.include("A person entry was added"); // Assert that the resultData includes the success message
         const { index } = JSON.parse(resultData); // Parse the result data to extract the index and store it for later tests
         this.lastIndex = index;  // Store the index value in the test context
+        // Using object destructuring to extract the index property from the parsed object. { index } or {index:index}
+        // Assigning the extracted index value to the lastIndex property of the current context (this).
+        // parses a JSON string, extracts the value of the index property from the resulting object, and assigns it 
+        // to the lastIndex property for further use. 
       });
       it("should not create a person record without an age", async function () {
         await this.ageField.type("Jim"); // Enter "Jim" in the age input field
